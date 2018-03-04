@@ -1,5 +1,6 @@
-<p-dataTable [value]="lancamentos" [paginator]="true" [rows]="5"
-    [responsive]="true">
+<p-dataTable [value]="lancamentos" emptyMessage="Nenhum registro encontrado" [responsive]="true"
+  [paginator]="true" [rows]="itensPorPagina" [lazy]="true" [totalRecords]="totalRegistros"
+  (onLazyLoad)="emitirEventoPagina($event)" loadingIcon="fa-spinner">
   <p-column field="pessoa" header="Pessoa"></p-column>
   <p-column field="descricao" header="Descrição"></p-column>
   <p-column header="Vencimento" styleClass="col-data">
