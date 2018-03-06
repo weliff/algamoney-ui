@@ -1,9 +1,10 @@
-import { LancamentosService } from './../lancamentos.service';
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 
 import { ToastyService, toastyServiceFactory } from 'ng2-toasty';
-
+import { ConfirmationService } from 'primeng/components/common/api';
 import { LazyLoadEvent } from 'primeng/components/common/lazyloadevent';
+
+import { LancamentosService } from './../lancamentos.service';
 
 @Component({
   selector: 'app-lancamentos-grid',
@@ -22,10 +23,20 @@ export class LancamentosGridComponent {
 
   @ViewChild('tabela') grid;
 
-  constructor(private lancamentosService: LancamentosService, private toastyService: ToastyService) { }
+  constructor(private lancamentosService: LancamentosService, private toastyService: ToastyService,
+    private confirmationService: ConfirmationService) { }
 
   emitirEventoPagina(event: LazyLoadEvent) {
     this.aoMudarPagina.emit(event);
+  }
+
+  confirmarExclusao(lancamento: any) {
+    this.confirmationService.confirm({
+      message: 'Tem certeza que deseja excluir?',
+      accept: () => {
+        this.excluir(lancamento);
+      }
+    });
   }
 
   excluir(lancamento) {
