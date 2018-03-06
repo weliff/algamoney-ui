@@ -1,5 +1,8 @@
 import { LancamentosService } from './../lancamentos.service';
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
+
+import { ToastyService, toastyServiceFactory } from 'ng2-toasty';
+
 import { LazyLoadEvent } from 'primeng/components/common/lazyloadevent';
 
 @Component({
@@ -19,7 +22,7 @@ export class LancamentosGridComponent {
 
   @ViewChild('tabela') grid;
 
-  constructor(private lancamentosService: LancamentosService) { }
+  constructor(private lancamentosService: LancamentosService, private toastyService: ToastyService) { }
 
   emitirEventoPagina(event: LazyLoadEvent) {
     this.aoMudarPagina.emit(event);
@@ -33,6 +36,7 @@ export class LancamentosGridComponent {
         } else {
           this.grid.first = 0;
         }
+        this.toastyService.success('Lançamento excluído com sucesso');
       });
   }
 
