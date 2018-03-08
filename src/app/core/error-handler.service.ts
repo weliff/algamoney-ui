@@ -8,7 +8,7 @@ export class ErrorHandlerService {
 
   handle(errorResponse: any) {
     let message: string;
-    if (typeof errorResponse === 'string'){
+    if (typeof errorResponse === 'string') {
       message = errorResponse;
     } else {
       message = 'Erro ao processar serviço remoto. Tente novamente';

@@ -1,3 +1,4 @@
+import { HttpModule } from '@angular/http';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -8,9 +9,11 @@ import { ErrorHandlerService } from './error-handler.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ConfirmationService } from 'primeng/components/common/api';
 import { LancamentosService } from '../lancamentos/lancamentos.service';
+import { CategoriaService } from '../categorias/categoria.service';
 
 @NgModule({
   imports: [
+    HttpModule,
     CommonModule,
     ToastyModule.forRoot(),
     ConfirmDialogModule,
@@ -25,6 +28,7 @@ import { LancamentosService } from '../lancamentos/lancamentos.service';
     ErrorHandlerService,
     // PessoaService,
     LancamentosService,
+    CategoriaService,
 
     ConfirmationService,
     { provide: LOCALE_ID, useValue: 'pt-BR'}

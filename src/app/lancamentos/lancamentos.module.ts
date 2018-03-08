@@ -23,7 +23,6 @@ import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos
   imports: [
     CommonModule,
     FormsModule,
-    HttpModule,
 
     SelectButtonModule,
     CalendarModule,
