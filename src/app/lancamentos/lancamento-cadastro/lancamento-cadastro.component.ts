@@ -31,6 +31,10 @@ export class LancamentoCadastroComponent implements OnInit {
     this.carregarCategorias();
   }
 
+  salvar() {
+
+  }
+
   carregarCategorias() {
     this.categoriaService.listarTodas()
       .then(categorias => {
