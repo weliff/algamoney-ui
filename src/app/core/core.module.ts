@@ -10,6 +10,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ConfirmationService } from 'primeng/components/common/api';
 import { LancamentosService } from '../lancamentos/lancamentos.service';
 import { CategoriaService } from '../categorias/categoria.service';
+import { PessoaService } from '../pessoas/pessoa.service';
 
 @NgModule({
   imports: [
@@ -26,7 +27,7 @@ import { CategoriaService } from '../categorias/categoria.service';
   ],
   providers: [
     ErrorHandlerService,
-    // PessoaService,
+    PessoaService,
     LancamentosService,
     CategoriaService,
 
