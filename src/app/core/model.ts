@@ -1,9 +1,9 @@
 export class Pessoa {
-  id: number;
+  codigo: number;
 }
 
 export class Categoria {
-  id: number;
+  codigo: number;
 }
 
 export class Lancamento {
