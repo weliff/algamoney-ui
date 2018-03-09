@@ -1,9 +1,9 @@
+import { RouterModule } from '@angular/router';
 import { LancamentosService } from './lancamentos.service';
 import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 
 import { TooltipModule } from 'primeng/components/tooltip/tooltip';
 import { DataTableModule } from 'primeng/components/datatable/datatable';
@@ -23,6 +23,7 @@ import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos
   imports: [
     CommonModule,
     FormsModule,
+    RouterModule,
 
     SelectButtonModule,
     CalendarModule,
