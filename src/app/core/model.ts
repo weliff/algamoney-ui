@@ -16,4 +16,8 @@ export class Lancamento {
   observacao: string;
   pessoa = new Pessoa();
   categoria = new Categoria();
+
+  get novo(): boolean {
+    return !this.codigo;
+  }
 }
