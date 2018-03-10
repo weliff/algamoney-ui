@@ -12,6 +12,7 @@ import { LancamentosService } from '../lancamentos/lancamentos.service';
 import { CategoriaService } from '../categorias/categoria.service';
 import { PessoaService } from '../pessoas/pessoa.service';
 import { RouterModule } from '@angular/router';
+import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada.component';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { RouterModule } from '@angular/router';
   ],
   declarations: [
     NavbarComponent,
+    PaginaNaoEncontradaComponent,
   ],
   exports: [
     NavbarComponent, ToastyModule, ConfirmDialogModule

@@ -45,6 +45,10 @@ export class LancamentoCadastroComponent implements OnInit {
   }
 
   novo(form: FormControl) {
+    form.reset();
+    setTimeout(function() {
+      this.lancamento = new Lancamento();
+    }.bind(this), 1);
     this.router.navigate(['/lancamentos/novo']);
   }
 
