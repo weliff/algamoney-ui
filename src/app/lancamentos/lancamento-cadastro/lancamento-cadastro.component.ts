@@ -9,6 +9,7 @@ import { LancamentosService } from './../lancamentos.service';
 import { ErrorHandlerService } from './../../core/error-handler.service';
 import { CategoriaService } from './../../categorias/categoria.service';
 import { PessoaService } from '../../pessoas/pessoa.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-lancamento-cadastro',
@@ -33,9 +34,12 @@ export class LancamentoCadastroComponent implements OnInit {
     private toastyService: ToastyService,
     private errorHandlerService: ErrorHandlerService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,
+    private title: Title
+    ) { }
 
   ngOnInit() {
+    this.title.setTitle('Novo lançamento');
     const codigoLancamento = this.route.snapshot.params['codigo'];
     if (codigoLancamento) {
       this.carregarLancamento(codigoLancamento);
@@ -54,7 +58,10 @@ export class LancamentoCadastroComponent implements OnInit {
 
   carregarLancamento(codigo: number) {
     this.lancamentosService.buscarPorCodigo(codigo)
-      .then(lancamento => this.lancamento = lancamento)
+      .then(lancamento => {
+        this.lancamento = lancamento;
+        this.atualizarTituloEdicao();
+      })
       .catch(error => this.errorHandlerService.handle(error));
   }
 
@@ -81,6 +88,7 @@ export class LancamentoCadastroComponent implements OnInit {
       .then(lancamento => {
         this.lancamento = lancamento; // caso o backend faça alguma transformação seria mostrado na tela (segurança dos dados)
         this.toastyService.success('Lançamento alterado com sucesso!');
+        this.atualizarTituloEdicao();
       }).catch(this.errorHandlerService.handle.bind(this.errorHandlerService));
   }
 
@@ -101,6 +109,10 @@ export class LancamentoCadastroComponent implements OnInit {
           .map(p => ({ label: p.nome, value: p.codigo }));
       })
       .catch(erro => this.errorHandlerService.handle(erro));
+  }
+
+  private atualizarTituloEdicao() {
+    this.title.setTitle(`Edição de lançamento: ${this.lancamento.descricao}`);
   }
 
 
