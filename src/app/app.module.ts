@@ -10,6 +10,7 @@ import { PessoasModule } from './pessoas/pessoas.module';
 import { LancamentosModule } from './lancamentos/lancamentos.module';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
+import { SegurancaModule } from './seguranca/seguranca.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { CoreModule } from './core/core.module';
     BrowserAnimationsModule,
 
     LancamentosModule,
+    SegurancaModule,
     PessoasModule,
     CoreModule,
     AppRoutingModule

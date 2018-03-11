@@ -8,6 +8,7 @@ import { PessoaCadastroComponent } from './pessoas/pessoa-cadastro/pessoa-cadast
 import { PaginaNaoEncontradaComponent } from './core/pagina-nao-encontrada.component';
 import { LancamentoRoutingModule } from './lancamentos/lancamento-routing.module';
 
+// TODO: Extrair para o modulo de rotas de funcionalidades de PESSOAS
 const routes: Routes = [
   { path: 'pessoas', component: PessoasPesquisaComponent },
   { path: 'pessoas/nova', component: PessoaCadastroComponent },
