@@ -1,3 +1,4 @@
+import { LancamentoRoutingModule } from './lancamento-routing.module';
 import { RouterModule } from '@angular/router';
 import { LancamentosService } from './lancamentos.service';
 import { SharedModule } from './../shared/shared.module';
@@ -23,7 +24,6 @@ import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule,
 
     SelectButtonModule,
     CalendarModule,
@@ -36,6 +36,7 @@ import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos
 
     CurrencyMaskModule,
 
+    LancamentoRoutingModule,
     SharedModule
   ],
   declarations: [
