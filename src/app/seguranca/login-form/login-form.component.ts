@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../core/auth.service';
 
 @Component({
   selector: 'app-login-form',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginFormComponent {
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   login(usuario: string, senha: string) {
+    this.authService.login(usuario, senha);
   }
 
 }

@@ -14,6 +14,7 @@ import { PessoaService } from '../pessoas/pessoa.service';
 import { RouterModule } from '@angular/router';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada.component';
 import { Title } from '@angular/platform-browser';
+import { AuthService } from './auth.service';
 
 @NgModule({
   imports: [
@@ -35,6 +36,7 @@ import { Title } from '@angular/platform-browser';
     PessoaService,
     LancamentosService,
     CategoriaService,
+    AuthService,
 
     Title,
     ConfirmationService,
