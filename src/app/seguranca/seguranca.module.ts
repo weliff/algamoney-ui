@@ -9,14 +9,16 @@ import { InputTextModule } from 'primeng/components/inputtext/inputtext';
 import { SegurancaRoutingModule } from './seguranca-routing.module';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
+import { MoneyHttp } from './money-http';
+import { AuthService } from './auth.service';
 
-export function authServiceFactory(http: Http, options: RequestOptions) {
+export function authServiceFactory(authService: AuthService, http: Http, options: RequestOptions) {
   const config = new AuthConfig({
     globalHeaders: [
       { 'Content-Type': 'application/json'}
     ]
   });
-  return new AuthHttp(config, http, options);
+  return new MoneyHttp(authService, config, http, options);
 }
 
 @NgModule({
@@ -32,7 +34,7 @@ export function authServiceFactory(http: Http, options: RequestOptions) {
   declarations: [LoginFormComponent],
   providers: [
     { provide: AuthHttp, useFactory: authServiceFactory,
-      deps: [Http, RequestOptions]
+      deps: [AuthService, Http, RequestOptions]
     }
   ]
 })

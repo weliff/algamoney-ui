@@ -30,7 +30,9 @@ import { AuthService } from '../seguranca/auth.service';
     PaginaNaoEncontradaComponent,
   ],
   exports: [
-    NavbarComponent, ToastyModule, ConfirmDialogModule
+    NavbarComponent,
+    ToastyModule,
+    ConfirmDialogModule
   ],
   providers: [
     ErrorHandlerService,
