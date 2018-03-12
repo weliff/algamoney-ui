@@ -19,6 +19,10 @@ export class AuthService {
     return this.jwtPayload && this.jwtPayload.authorities.includes(permissao);
   }
 
+  temQualquerPermissao(roles: Array<string>): boolean {
+    return roles.some(role => this.temPermissao(role));
+  }
+
   login(usuario: string, senha: string): Promise<void> {
     const headers = new Headers();
     headers.append('Authorization', 'Basic YW5ndWxhcjphbmd1bGFy');

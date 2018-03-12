@@ -11,6 +11,10 @@ import { NaoAutorizadoComponent } from './core/nao-autorizado.component';
 
 // TODO: Extrair para o modulo de rotas de funcionalidades de PESSOAS
 const routes: Routes = [
+  { path: '',
+    redirectTo: 'lancamentos',
+    pathMatch: 'full'
+  },
   { path: 'pessoas', component: PessoasPesquisaComponent },
   { path: 'pessoas/nova', component: PessoaCadastroComponent },
   { path: 'pagina-nao-encontrada', component: PaginaNaoEncontradaComponent },

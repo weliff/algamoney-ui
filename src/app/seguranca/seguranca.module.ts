@@ -11,6 +11,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { MoneyHttp } from './money-http';
 import { AuthService } from './auth.service';
+import { AuthGuard } from './auth.guard';
 
 export function authServiceFactory(authService: AuthService, http: Http, options: RequestOptions) {
   const config = new AuthConfig({
@@ -33,6 +34,7 @@ export function authServiceFactory(authService: AuthService, http: Http, options
   ],
   declarations: [LoginFormComponent],
   providers: [
+    AuthGuard,
     { provide: AuthHttp, useFactory: authServiceFactory,
       deps: [AuthService, Http, RequestOptions]
     }
