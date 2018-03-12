@@ -49,7 +49,7 @@ export class AuthService {
       .then(response => this.armazenarToken(response.json().access_token))
       .catch(response => {
         console.error('Erro ao renovar token', response);
-        return Promise.reject(null);
+        return Promise.resolve(null);
       });
   }
 

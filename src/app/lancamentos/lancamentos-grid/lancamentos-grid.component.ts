@@ -1,3 +1,4 @@
+import { AuthService } from './../../seguranca/auth.service';
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 
 import { ToastyService, toastyServiceFactory } from 'ng2-toasty';
@@ -24,8 +25,13 @@ export class LancamentosGridComponent {
 
   @ViewChild('tabela') grid;
 
-  constructor(private lancamentosService: LancamentosService, private toastyService: ToastyService,
-    private confirmationService: ConfirmationService, private errorHandlerService: ErrorHandlerService) { }
+  constructor(
+    private lancamentosService: LancamentosService,
+    private toastyService: ToastyService,
+    private confirmationService: ConfirmationService,
+    private errorHandlerService: ErrorHandlerService,
+    private auth: AuthService
+  ) { }
 
   emitirEventoPagina(event: LazyLoadEvent) {
     this.aoMudarPagina.emit(event);
