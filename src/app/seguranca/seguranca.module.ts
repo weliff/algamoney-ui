@@ -12,6 +12,7 @@ import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { MoneyHttp } from './money-http';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
+import { LogoutService } from './logout.service';
 
 export function authServiceFactory(authService: AuthService, http: Http, options: RequestOptions) {
   const config = new AuthConfig({
@@ -34,6 +35,7 @@ export function authServiceFactory(authService: AuthService, http: Http, options
   ],
   declarations: [LoginFormComponent],
   providers: [
+    LogoutService,
     AuthGuard,
     { provide: AuthHttp, useFactory: authServiceFactory,
       deps: [AuthService, Http, RequestOptions]
