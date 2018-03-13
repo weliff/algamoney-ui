@@ -14,7 +14,7 @@ export class AuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    if (this.authService.isAccessTokenInvalido()) {
+    if (this.authService.isAccessTokenInvalido()) { // Caso o usuário digite a rota no browser na mão
       this.authService.obterNovoAccessToken()
         .then(() => {
           if (this.authService.isAccessTokenInvalido()) {
