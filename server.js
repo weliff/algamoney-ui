@@ -8,5 +8,7 @@ app.get('/*', function(req, res) {
   res.sendFile(__dirname + '/dist/index.html');
 });
 
-app.listen(process.env.PORT | 4200);
-console.log('Running App...')
+const port  = process.env.PORT || 4200;
+
+app.listen(port);
+console.log('Running App on Port: ' + port);
